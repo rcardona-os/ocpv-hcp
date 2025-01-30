@@ -18,6 +18,7 @@ e.i.
 ```bash
 $ wget https://hcp-cli-download-multicluster-engine.apps.ov.sandbox2941.opentlc.com/darwin/amd64/hcp.tar.gz \
   --no-check-certificate
+```
 
 3- Unpack the downloaded archive by running the following command:
 
