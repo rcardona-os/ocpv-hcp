@@ -46,7 +46,7 @@ Note: If you download the CLI on a Mac computer, you might see a warning about t
 $ hcp create cluster <platform> --help 
 ```
 
-#### installing hypershift opertaor
+#### installing Muticluster operator
 
 1- Make sure the OCP cluster has wildcard DNS routes enabled
 ```bash
@@ -62,4 +62,14 @@ $ oc patch storageclass ocs-storagecluster-ceph-rbd -p '{"metadata": {"annotatio
 3- Make sure the multicluster engine Operator has at least one managed OCP cluster
 ```bash
 $ oc get managedclusters local-cluster
+```
+
+#### provisioning hosted cluster
+```bash
+$ hcp create cluster kubevirt --name example \
+  --node-pool-replicas 0 \
+  --pull-secret pull-secret.json \
+  --memory 10 \
+  --cores 8 \
+  --etcd-storage-class=ocs-storagecluster-ceph-rbd
 ```
