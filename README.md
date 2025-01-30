@@ -13,6 +13,11 @@ $ oc get ConsoleCLIDownload hcp-cli-download -o json | jq -r ".spec"
 $ wget <hcp_cli_download_url> 
 Replace hcp_cli_download_url with the URL that you obtained from the previous step.
 ```
+e.i.
+
+```bash
+$ wget https://hcp-cli-download-multicluster-engine.apps.ov.sandbox2941.opentlc.com/darwin/amd64/hcp.tar.gz
+```
 
 3- Unpack the downloaded archive by running the following command:
 
