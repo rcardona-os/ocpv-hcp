@@ -66,7 +66,7 @@ $ oc get managedclusters local-cluster
 
 #### provisioning hosted cluster
 ```bash
-$ hcp create cluster kubevirt --name example \
+$ hcp create cluster kubevirt --name myhostedcluster \
   --node-pool-replicas 0 \
   --pull-secret pull-secret.json \
   --memory 10 \
