@@ -73,13 +73,9 @@ $ hcp create cluster <platform> --help
 #### 2 - provisioning a hosted cluster
 ##### 2.0 - provisioning hosted cluster
 ```bash
-$ oc new-project hcp
-```
-
-```bash
 $ hcp create cluster kubevirt \
   --name guest-cluster \
-  --namespace hpc \
+  --namespace hcp \
   --node-pool-replicas 3 \
   --pull-secret pull-secret.json \
   --memory 10 \
