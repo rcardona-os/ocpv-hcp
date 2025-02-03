@@ -102,3 +102,9 @@ $ hcp create kubeconfig \
   --name <HOSTED_CLUSTER_NAME> \
   > <HOSTED_CLUSTER_NAME>.kubeconfig
 ``` 
+
+$ hcp create kubeconfig \
+  --namespace hostedproject-hostedcluster \
+  --name hostedcluster \
+  > hostedcluster.kubeconfig
+``` 
