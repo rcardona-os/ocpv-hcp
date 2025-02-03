@@ -85,5 +85,5 @@ $ hcp create cluster kubevirt \
 
 ##### 2.1- to check the status of the hosted cluster
 ```bash
-$ oc get --namespace clusters hostedclusters
+$ oc get hostedclusters -n hostedproject
 ```
