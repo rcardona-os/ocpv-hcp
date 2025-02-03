@@ -99,8 +99,7 @@ $ oc get hostedclusters -n hostedproject
 ```bash
 $ hcp create kubeconfig \
   --namespace <HOSTED_CLUSTER_NAMESPACE> \
-  --name <HOSTED_CLUSTER_NAME> \
-  > <HOSTED_CLUSTER_NAME>.kubeconfig
+  --name <HOSTED_CLUSTER_NAME> > <HOSTED_CLUSTER_NAME>.kubeconfig
 ``` 
 
 ```bash
