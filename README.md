@@ -1,8 +1,8 @@
 ## Prerequisites
 
-- [ ] OCP v4.17
-- [ ] ODF Installed and configure (default block storage class) 
-- [ ] OCP Virtualization installed and configured
+- [✔️] OCP v4.17
+- [✔️] ODF Installed and configure (default block storage class) 
+- [✔️] OCP Virtualization installed and configured
 
 
 ## Steps:
