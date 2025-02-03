@@ -1,3 +1,10 @@
+## Prerequisites
+
+- [ ] OCP v4.17
+- [ ] ODF Installed and configure (default block storage class) 
+- [ ] OCP Virtualization installed and configured
+
+
 ## Steps:
 
 #### - installing hcp cli
@@ -66,10 +73,17 @@ $ oc get managedclusters local-cluster
 
 #### provisioning hosted cluster
 ```bash
-$ hcp create cluster kubevirt --name myhostedcluster \
+$ hcp create cluster kubevirt \
+  --name hostedcluster \
+  --namespace hostedproject
   --node-pool-replicas 0 \
   --pull-secret pull-secret.json \
   --memory 10 \
   --cores 8 \
   --etcd-storage-class=ocs-storagecluster-ceph-rbd
+```
+
+#### to check the status of the hosted cluster
+```bash
+$ oc get --namespace clusters hostedclusters
 ```
