@@ -2,9 +2,9 @@
 
 - [x] OCP v4.17
 
-[✔️] ODF Installed and configure (default block storage class)
+- [x] ODF Installed and configure (default block storage class)
 
-- [ ✔️ ] OCP Virtualization installed and configured
+- [x] OCP Virtualization installed and configured
 
 
 ## Steps:
