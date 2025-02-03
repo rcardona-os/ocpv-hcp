@@ -76,7 +76,7 @@ $ hcp create cluster <platform> --help
 $ hcp create cluster kubevirt \
   --name hostedcluster \
   --namespace hostedproject \
-  --node-pool-replicas 0 \
+  --node-pool-replicas 2 \
   --pull-secret pull-secret.json \
   --memory 10 \
   --cores 8 \
