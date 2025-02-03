@@ -104,6 +104,10 @@ $ hcp create kubeconfig \
 
 ```bash
 $ hcp create kubeconfig \
-  --namespace hostedproject-hostedcluster \
-  --name hostedcluster > hostedcluster.kubeconfig
-``` 
+  --namespace hcp \
+  --name guest-cluster > guest-cluster.kubeconfig
+```
+
+```bash
+$ oc --kubeconfig guest-cluster.kubeconfig get nodes
+```
