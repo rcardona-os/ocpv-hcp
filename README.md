@@ -75,7 +75,7 @@ $ hcp create cluster <platform> --help
 ```bash
 $ hcp create cluster kubevirt \
   --name hostedcluster \
-  --namespace hostedproject
+  --namespace hostedproject \
   --node-pool-replicas 0 \
   --pull-secret pull-secret.json \
   --memory 10 \
