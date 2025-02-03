@@ -80,7 +80,7 @@ $ oc new-project hcp
 $ hcp create cluster kubevirt \
   --name guest-cluster \
   --namespace hpc \
-  --node-pool-replicas 2 \
+  --node-pool-replicas 3 \
   --pull-secret pull-secret.json \
   --memory 10 \
   --cores 8 \
