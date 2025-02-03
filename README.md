@@ -22,7 +22,7 @@ $ oc patch ingresscontroller -n openshift-ingress-operator default \
 $ oc patch storageclass ocs-storagecluster-ceph-rbd -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 ```
 
-##### 0.3- Install multicluster engine Operator
+##### 0.3- Install *Multicluster Engine for Kebernetes* Operator
 
 ##### 0.4- Test if the multicluster engine Operator has at least one managed OCP cluster
 ```bash
