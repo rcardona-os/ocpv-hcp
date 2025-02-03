@@ -73,9 +73,13 @@ $ hcp create cluster <platform> --help
 #### 2- provisioning a hosted cluster
 ##### 2.0- provisioning hosted cluster
 ```bash
+$ oc new-project hcp
+```
+
+```bash
 $ hcp create cluster kubevirt \
-  --name hostedcluster \
-  --namespace hostedproject \
+  --name guest-cluster \
+  --namespace hpc \
   --node-pool-replicas 2 \
   --pull-secret pull-secret.json \
   --memory 10 \
@@ -88,3 +92,13 @@ $ hcp create cluster kubevirt \
 ```bash
 $ oc get hostedclusters -n hostedproject
 ```
+
+#### 3 Accessing the hosted cluster
+
+##### 3.0- Generating the kubeconfig file
+```bash
+$ hcp create kubeconfig \
+  --namespace <HOSTED_CLUSTER_NAMESPACE> \
+  --name <HOSTED_CLUSTER_NAME> \
+  > <HOSTED_CLUSTER_NAME>.kubeconfig
+``` 
