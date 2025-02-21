@@ -193,7 +193,7 @@ $ oc get pods -n hpc-guest-cluster-0
 To list all resources **inside the management cluster** (Hosting Cluster):
 ```sh
 oc get all -n hcp
-
+```
 
 🚀 A hosted cluster is a cluster that only runs worker nodes, its control plane and API endpoint hosted on a management cluster.
 
