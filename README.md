@@ -99,6 +99,7 @@ $ oc get -o json mce multiclusterengine | jq -r '.status.phase'
 ```
 
 ##### 0.4 - Test if the multicluster engine Operator has at least one managed OCP cluster
+🚀  A managed cluster is any cluster that is centrally managed by a control plane, such as Red Hat Advanced Cluster Management (RHACM), OpenShift GitOps, or OpenShift Hosted Control Planes. A key Characteristics of a Managed Cluster is that it can be a full OpenShift cluster or a hosted cluster.
 
 ```bash
 $ oc get managedclusters local-cluster
@@ -146,7 +147,7 @@ $ hcp create cluster <platform> --help
 
 #### 2 - provisioning a hosted cluster
 ##### 2.0 - provisioning hosted cluster
-💡 Along the guest cluster, a *hpc* namespace is being created 
+🚀 Along the guest cluster, a *hpc* namespace is being created 
 ```bash
 $ hcp create cluster kubevirt \
   --name guest-cluster \
@@ -160,7 +161,8 @@ $ hcp create cluster kubevirt \
 ```
 
 ##### 2.1 - To check the status of the hosted cluster
-💡 A hosted cluster is a cluster that only runs worker nodes, it is in fact the data plane of the guest cluster.
+🚀 A hosted cluster is a cluster that only runs worker nodes, its control plane and API endpoint hosted on a management cluster.
+
 ```bash
 $ oc get hostedclusters -n hcp
 ```
