@@ -22,13 +22,70 @@ $ oc patch ingresscontroller -n openshift-ingress-operator default \
 $ oc patch storageclass ocs-storagecluster-ceph-rbd -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 ```
 
-##### 0.3 - Install *"Multicluster Engine for Kebernetes"* Operator
+##### 0.3 - Install *"Multicluster Engine for Kubernetes"* Operator
+
+```bash
+$ oc create namespace multicluster-engine
+```
+
+```bash
+$ oc project multicluster-engine
+```
+
+```bash
+$ oc apply -f - <<EOF
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: multicluster-engine-operators
+  namespace: multicluster-engine
+spec:
+  targetNamespaces:
+  - multicluster-engine
+EOF
+```
+
+```bash
+$ oc apply -f - <<EOF
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: multicluster-engine
+  namespace: multicluster-engine
+spec:
+  sourceNamespace: openshift-marketplace
+  source: redhat-operators
+  channel: stable-2.7
+  installPlanApproval: Automatic
+  name: multicluster-engine
+EOF
+```
+
+```bash
+$ oc apply -f - <<EOF
+apiVersion: multicluster.openshift.io/v1
+kind: MultiClusterEngine
+metadata:
+  name: multiclusterengine
+spec: {}
+EOF
+```
+NOTE: If this step fails with the following error, the resources are still being created and applied. Run the command again in a few minutes when the resources are created
+
+```text
+error: unable to recognize "./mce.yaml": no matches for kind "MultiClusterEngine" in version "operator.multicluster-engine.io/v1"
+```
+
+- Run the following command to get the custom resource. It can take up to 10 minutes for the MultiClusterEngine custom resource status to display as Available in the status.phase field after you run the following command:
+
+```bash
+$ oc get mce -o=jsonpath='{.items[0].status.phase}'
+```
 
 ##### 0.4 - Test if the multicluster engine Operator has at least one managed OCP cluster
 ```bash
 $ oc get managedclusters local-cluster
 ```
-
 
 ####  1 - installing hcp cli
 ##### 1.0 - Get the URL to download the hcp binary by running the following command:
