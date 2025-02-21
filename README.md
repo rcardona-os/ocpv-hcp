@@ -150,7 +150,7 @@ $ hcp create cluster <platform> --help
 🚀 Along the guest cluster, a *hpc* namespace is being created 
 ```bash
 $ hcp create cluster kubevirt \
-  --name guest-cluster \
+  --name guest-cluster-0 \
   --namespace hcp \
   --node-pool-replicas 3 \
   --pull-secret pull-secret.json \
