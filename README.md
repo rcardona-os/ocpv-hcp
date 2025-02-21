@@ -184,7 +184,7 @@ $ hcp create kubeconfig \
 ```bash
 $ hcp create kubeconfig \
   --namespace hcp \
-  --name guest-cluster > guest-cluster.kubeconfig
+  --name guest-cluster-0 > guest-cluster.kubeconfig
 ```
 
 ```bash
