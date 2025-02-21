@@ -95,7 +95,7 @@ error: unable to recognize "./mce.yaml": no matches for kind "MultiClusterEngine
 - Run the following command to get the custom resource. It can take up to 10 minutes for the MultiClusterEngine custom resource status to display as Available in the status.phase field after you run the following command:
 
 ```bash
-$ oc get mce -o=jsonpath='{.items[0].status.phase}'
+$ oc get -o json mce multiclusterengine | jq -r '.status.phase'
 ```
 
 ##### 0.4 - Test if the multicluster engine Operator has at least one managed OCP cluster
