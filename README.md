@@ -160,7 +160,7 @@ $ hcp create cluster kubevirt \
   --etcd-storage-class=ocs-storagecluster-ceph-rbd
 ```
 
-🚀 Verify that the hosted control plane pods are running with  > oc -n clusters-<hosted-cluster-name> get pods
+🚀 Verify that the hosted control plane pods are running with   *oc -n clusters-< hosted-cluster-name> get pods*
 ```bash
 $ oc -n clusters-guest-cluster-0 get pods -n hpc
 ```
