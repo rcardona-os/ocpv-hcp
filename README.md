@@ -165,7 +165,7 @@ $ hcp create cluster kubevirt \
 $ oc get pods -n hpc-guest-cluster-0 
 ```
 
-##### 2.1 - To check the status of the hosted cluster
+##### 2.1 - Checking the status of the hosted cluster
 
 ##### 🚀 Namespace Breakdown in OpenShift HCP (Hypershift)
 
