@@ -204,36 +204,38 @@ $ oc get hostedclusters -n hcp
 
 #### 3 - Accessing the hosted cluster
 
-##### 3.0 - Generating the kubeconfig file
+##### 3.0 - Extracting the hosted cluster credentials
 ```bash
 $ hcp create kubeconfig \
   --namespace <HOSTED_CLUSTER_NAMESPACE> \
   --name <HOSTED_CLUSTER_NAME> > <HOSTED_CLUSTER_NAME>.kubeconfig
-``` 
-
-
-
-
-
-##### adding identity provider
-```bash
-$ oc edit HostedCluster guest-cluster-0 -n hcp
 ```
 
-#### extracting the hosted cluster credentials
-
-- kubeconfig
+- Generating the kubeconfig file
 ```bash
 $ hcp create kubeconfig \
   --namespace hcp \
   --name guest-cluster-0 > guest-cluster.kubeconfig
 ```
 
+- Testing
+
 ```bash
 $ oc --kubeconfig guest-cluster.kubeconfig get nodes
 ```
 
-- the secret in the 
+- Extracting the kubeadmin password in the kubeadmin-password in the HOSTED_CLUSTER_NAMESPACE
 ```bash
-oc get -o json secret kubeadmin-password -n hcp-guest-cluster-0 | jq -r 
+$ oc get -o json secret kubeadmin-password -n hcp-guest-cluster-0 | jq -r '.data.password' | base64 -d
+```
+
+e.i.
+
+```text
+DTLL8-LvWxb-IzhqP-JaiNc
+```
+
+##### adding identity provider
+```bash
+$ oc edit hostedclusters guest-cluster-0 -n hcp
 ```
