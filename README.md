@@ -147,7 +147,7 @@ $ hcp create cluster <platform> --help
 
 #### 2 - provisioning a hosted cluster
 ##### 2.0 - provisioning hosted cluster
-🚀 Along the guest cluster, a *hpc* namespace is being created 
+🚀 Along the guest cluster named **guest-cluster-0**, a namespace named **hcp** is being created 
 ```bash
 $ hcp create cluster kubevirt \
   --name guest-cluster-0 \
