@@ -105,7 +105,7 @@ $ oc get -o json mce multiclusterengine | jq -r '.status.phase'
 $ oc get managedclusters local-cluster
 ```
 
-####  1 - installing hcp cli
+####  1 - Installing hcp cli
 ##### 1.0 - Get the URL to download the hcp binary by running the following command:
 ```bash
 $ oc get ConsoleCLIDownload hcp-cli-download -o json | jq -r ".spec"
@@ -145,8 +145,8 @@ $ sudo mv hcp /usr/local/bin/.
 $ hcp create cluster <platform> --help 
 ```
 
-#### 2 - provisioning a hosted cluster
-##### 2.0 - provisioning hosted cluster
+#### 2 - Provisioning a hosted cluster
+##### 2.0 - Provisioning hosted cluster
 🚀 Along the guest cluster named **guest-cluster-0**, a namespace named **hcp** is being created 
 ```bash
 $ hcp create cluster kubevirt \
@@ -162,10 +162,10 @@ $ hcp create cluster kubevirt \
 
 🚀 Verify that the hosted control plane pods are running in the HOSTED_CLUSTER_NAMESPACE, these are the pods that run the control plane of the managed cluster.
 ```bash
-$ oc get pods -n hpc-guest-cluster-0 
+$ oc get pods -n hpc-guest-cluster-0
 ```
 
-##### 2.1 - Checking the status of the hosted cluster
+- This is the result
 
 ##### 🚀 Namespace Breakdown in OpenShift HCP (Hypershift)
 
@@ -187,16 +187,15 @@ $ oc get pods -n hpc-guest-cluster-0
 
 ---
 
-##### 🔍 Verifying Each Namespace
 
-##### **1️⃣ Hosted Control Plane (`hcp`) – The Management Side**
+##### 2.1 - Checking the status of the hosted cluster
 
-To list all resources **inside the management cluster** (Hosting Cluster):
+- To list all resources **inside the management cluster** (Hosting Cluster)
 ```sh
 oc get all -n hcp
 ```
 
-🚀 A hosted cluster is a cluster that only runs worker nodes, its control plane and API endpoint hosted on a management cluster.
+🚀 A hosted cluster (guest-cluster-0) is a cluster that only runs worker nodes, its control plane and API endpoint hosted on a management cluster.
 
 ```bash
 $ oc get hostedclusters -n hcp
@@ -219,7 +218,6 @@ $ hcp create kubeconfig \
 ```
 
 - Testing
-
 ```bash
 $ oc --kubeconfig guest-cluster.kubeconfig get nodes
 ```
