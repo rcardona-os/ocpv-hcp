@@ -166,6 +166,35 @@ $ oc get pods -n hpc-guest-cluster-0
 ```
 
 ##### 2.1 - To check the status of the hosted cluster
+
+## 🚀 Namespace Breakdown in OpenShift HCP (Hypershift)
+
+| Namespace                 | What It Represents |
+|---------------------------|--------------------|
+| **`hcp`**                 | **The Management Cluster's HCP Namespace** → This is where OpenShift **manages** the Hosted Control Plane (HCP) for your hosted cluster. |
+| **`hcp-guest-cluster-0`** | **The Hosted Cluster's Namespace** → This is where your worker nodes, workloads, and control plane components live **inside the hosted cluster**. |
+
+---
+
+## 🌍 Where Each Component Runs
+
+| **Component**             | **Lives In Namespace**          | **Where It Runs** |
+|---------------------------|--------------------------------|-------------------|
+| **Hosted Control Plane**  | `hcp` (Management Cluster)     | **Management Cluster** |
+| **Worker Nodes (VMs)**    | `hcp-guest-cluster-0`         | **Hosted Cluster** |
+| **MachinePool / NodePool** | `hcp` (Management Cluster)    | **Controls Hosted Cluster Workers** |
+| **KubeVirt VMs**          | `hcp-guest-cluster-0`         | **Hosted Cluster Worker Nodes** |
+
+---
+
+## 🔍 Verifying Each Namespace
+
+### **1️⃣ Hosted Control Plane (`hcp`) – The Management Side**
+To list all resources **inside the management cluster** (Hosting Cluster):
+```sh
+oc get all -n hcp
+
+
 🚀 A hosted cluster is a cluster that only runs worker nodes, its control plane and API endpoint hosted on a management cluster.
 
 ```bash
@@ -181,6 +210,18 @@ $ hcp create kubeconfig \
   --name <HOSTED_CLUSTER_NAME> > <HOSTED_CLUSTER_NAME>.kubeconfig
 ``` 
 
+
+
+
+
+##### adding identity provider
+```bash
+$ oc edit HostedCluster guest-cluster-0 -n hcp
+```
+
+#### extracting the hosted cluster credentials
+
+- kubeconfig
 ```bash
 $ hcp create kubeconfig \
   --namespace hcp \
@@ -189,4 +230,9 @@ $ hcp create kubeconfig \
 
 ```bash
 $ oc --kubeconfig guest-cluster.kubeconfig get nodes
+```
+
+- the secret in the 
+```bash
+oc get -o json secret kubeadmin-password -n hcp-guest-cluster-0 | jq -r 
 ```
