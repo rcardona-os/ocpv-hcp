@@ -189,7 +189,8 @@ $ oc get pods -n hpc-guest-cluster-0
 
 ##### 🔍 Verifying Each Namespace
 
-### **1️⃣ Hosted Control Plane (`hcp`) – The Management Side**
+##### **1️⃣ Hosted Control Plane (`hcp`) – The Management Side**
+
 To list all resources **inside the management cluster** (Hosting Cluster):
 ```sh
 oc get all -n hcp
