@@ -159,7 +159,7 @@ $ hcp create cluster kubevirt \
 ```
 
 ##### 2.1 - To check the status of the hosted cluster
-💡 a hosted cluster is a cluster that only runs worker nodes.
+💡 A hosted cluster is a cluster that only runs worker nodes.
 ```bash
 $ oc get hostedclusters -n hcp
 ```
