@@ -160,7 +160,7 @@ $ hcp create cluster kubevirt \
   --etcd-storage-class=ocs-storagecluster-ceph-rbd
 ```
 
-🚀 Verify that the hosted control plane pods are running with *oc -n clusters-< hosted-cluster-name > get pods*, these are the pods that run the control plane of the managed cluster.
+🚀 Verify that the hosted control plane pods are running in the HOSTED_CLUSTER_NAMESPACE, these are the pods that run the control plane of the managed cluster.
 ```bash
 $ oc get pods -n hpc-guest-cluster-0 
 ```
@@ -171,7 +171,7 @@ $ oc get pods -n hpc-guest-cluster-0
 
 | Namespace                 | What It Represents |
 |---------------------------|--------------------|
-| **`hcp`**                 | **The Management Cluster's HCP Namespace** → This is where OpenShift **manages** the Hosted Control Plane (HCP) for your hosted cluster. |
+| **`hcp`**                 | **The Management Cluster's HCP Namespace** → This is where OpenShift **manages** the Hosted Control Plane (HCP) for the hosted cluster. |
 | **`hcp-guest-cluster-0`** | **The Hosted Cluster's Namespace** → This is where your worker nodes, workloads, and control plane components live **inside the hosted cluster**. |
 
 ---
