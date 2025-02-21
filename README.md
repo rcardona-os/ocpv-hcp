@@ -99,6 +99,7 @@ $ oc get -o json mce multiclusterengine | jq -r '.status.phase'
 ```
 
 ##### 0.4 - Test if the multicluster engine Operator has at least one managed OCP cluster
+
 ```bash
 $ oc get managedclusters local-cluster
 ```
@@ -136,7 +137,7 @@ $ chmod +x hcp
 $ sudo mv hcp /usr/local/bin/.
 ```
 
-Note: If you download the CLI on a Mac computer, you might see a warning about the hcp binary file. You need to adjust your security settings to allow the binary file to be run.
+💡 If you download the CLI on a Mac computer, you might see a warning about the hcp binary file. You need to adjust your security settings to allow the binary file to be run.
 
 ##### 1.6 - Verification (platform: aws, kubevirt, etc)
 ```bash
@@ -158,6 +159,7 @@ $ hcp create cluster kubevirt \
 ```
 
 ##### 2.1 - To check the status of the hosted cluster
+💡 a hosted cluster is a cluster that only runs worker nodes.
 ```bash
 $ oc get hostedclusters -n hcp
 ```
