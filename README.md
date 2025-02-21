@@ -146,6 +146,7 @@ $ hcp create cluster <platform> --help
 
 #### 2 - provisioning a hosted cluster
 ##### 2.0 - provisioning hosted cluster
+💡 Along the guest cluster, a *hpc* namespace is being created 
 ```bash
 $ hcp create cluster kubevirt \
   --name guest-cluster \
@@ -159,7 +160,7 @@ $ hcp create cluster kubevirt \
 ```
 
 ##### 2.1 - To check the status of the hosted cluster
-💡 A hosted cluster is a cluster that only runs worker nodes.
+💡 A hosted cluster is a cluster that only runs worker nodes, it is in fact the data plane of the guest cluster.
 ```bash
 $ oc get hostedclusters -n hcp
 ```
