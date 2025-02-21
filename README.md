@@ -167,7 +167,7 @@ $ oc get pods -n hpc-guest-cluster-0
 
 ##### 2.1 - To check the status of the hosted cluster
 
-## 🚀 Namespace Breakdown in OpenShift HCP (Hypershift)
+##### 🚀 Namespace Breakdown in OpenShift HCP (Hypershift)
 
 | Namespace                 | What It Represents |
 |---------------------------|--------------------|
@@ -176,7 +176,7 @@ $ oc get pods -n hpc-guest-cluster-0
 
 ---
 
-## 🌍 Where Each Component Runs
+##### 🌍 Where Each Component Runs
 
 | **Component**             | **Lives In Namespace**          | **Where It Runs** |
 |---------------------------|--------------------------------|-------------------|
@@ -187,7 +187,7 @@ $ oc get pods -n hpc-guest-cluster-0
 
 ---
 
-## 🔍 Verifying Each Namespace
+##### 🔍 Verifying Each Namespace
 
 ### **1️⃣ Hosted Control Plane (`hcp`) – The Management Side**
 To list all resources **inside the management cluster** (Hosting Cluster):
