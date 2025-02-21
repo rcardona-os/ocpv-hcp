@@ -13,13 +13,29 @@
 
 ##### 0.1 - Make sure the OCP cluster has wildcard DNS routes enabled
 ```bash
-$ oc patch ingresscontroller -n openshift-ingress-operator default \
-  --type=json -p '[{ "op": "add", "path": "/spec/routeAdmission", "value": {wildcardPolicy: "WildcardsAllowed"}}]'
+$ oc patch ingresscontroller default -n openshift-ingress-operator \
+  --type=json \
+  -p '[
+    { 
+      "op": "add", 
+      "path": "/spec/routeAdmission", 
+      "value": { 
+        "wildcardPolicy": "WildcardsAllowed" 
+      } 
+    }
+  ]'
 ```
 
 ##### 0.2 - The OpenShift Container Platform management cluster has a default storage class
 ```bash
-$ oc patch storageclass ocs-storagecluster-ceph-rbd -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+$ oc patch storageclass ocs-storagecluster-ceph-rbd \
+  -p '{
+    "metadata": {
+      "annotations": {
+        "storageclass.kubernetes.io/is-default-class": "true"
+      }
+    }
+  }'
 ```
 
 ##### 0.3 - Install *"Multicluster Engine for Kubernetes"* Operator
