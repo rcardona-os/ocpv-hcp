@@ -9,7 +9,7 @@
 
 ## Steps:
 
-#### 0 - Installing Muticluster operator
+### 0 - Installing Muticluster operator
 
 ##### 0.1 - Make sure the OCP cluster has wildcard DNS routes enabled
 ```bash
@@ -105,7 +105,7 @@ $ oc get -o json mce multiclusterengine | jq -r '.status.phase'
 $ oc get managedclusters local-cluster
 ```
 
-####  1 - Installing hcp cli
+###  1 - Installing hcp cli
 ##### 1.0 - Get the URL to download the hcp binary by running the following command:
 ```bash
 $ oc get ConsoleCLIDownload hcp-cli-download -o json | jq -r ".spec"
@@ -145,7 +145,7 @@ $ sudo mv hcp /usr/local/bin/.
 $ hcp create cluster <platform> --help 
 ```
 
-#### 2 - Provisioning a hosted cluster
+### 2 - Provisioning a hosted cluster
 ##### 2.0 - Provisioning hosted cluster
 🚀 Along the guest cluster named **guest-cluster-0**, a namespace named **hcp** is being created 
 ```bash
@@ -169,7 +169,7 @@ $ oc get pods -n hpc-guest-cluster-0
 
 ##### 🚀 Namespace Breakdown in OpenShift HCP (Hypershift)
 
-## 🛠️ How to Differentiate the Namespaces
+##### 🛠️ How to Differentiate the Namespaces
 
 | Namespace                 | Location             | Purpose |
 |---------------------------|---------------------|---------|
@@ -204,7 +204,7 @@ oc get all -n hcp
 $ oc get hostedclusters -n hcp
 ```
 
-#### 3 - Accessing the hosted cluster
+### 3 - Accessing the hosted cluster
 
 ##### 3.0 - Extracting the hosted cluster credentials
 ```bash
