@@ -225,7 +225,9 @@ $ oc --kubeconfig guest-cluster.kubeconfig get nodes
 
 - Extracting the kubeadmin password in the kubeadmin-password in the HOSTED_CLUSTER_NAMESPACE
 ```bash
-$ oc get -o json secret kubeadmin-password -n hcp-guest-cluster-0 | jq -r '.data.password' | base64 -d
+$ oc get -o json secret kubeadmin-password -n hcp-guest-cluster-0 \
+  | jq -r '.data.password' \
+  | base64 -d
 ```
 
 e.i.
