@@ -167,9 +167,7 @@ $ oc get pods -n hpc-guest-cluster-0
 
 - How the namespaces fit into the architecture
 
-##### 🚀 Namespace Breakdown in OpenShift HCP (Hypershift)
-
-##### 🛠️ How to Differentiate the Namespaces
+#### 🚀 Namespace Breakdown in OpenShift HCP (Hypershift)
 
 | Namespace                 | Location             | Purpose |
 |---------------------------|---------------------|---------|
