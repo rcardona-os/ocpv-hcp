@@ -173,7 +173,7 @@ $ oc get pods -n hpc-guest-cluster-0
 
 | Namespace                 | Location             | Purpose |
 |---------------------------|---------------------|---------|
-| **`hcp`**                 | Management Cluster  | Controls the hosted control plane custome resource|
+| **`hcp`**                 | Management Cluster  | Controls the hosted control plane custom resource|
 | **`guest-cluster-0`**     | Management Cluster  | Stores metadata and API objects for the hosted cluster |
 | **`hcp-guest-cluster-0`** | Hosted Cluster      | Runs worker nodes and workloads |
 
