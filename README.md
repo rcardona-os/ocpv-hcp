@@ -154,7 +154,7 @@ $ hcp create cluster kubevirt \
   --namespace hcp \
   --node-pool-replicas 3 \
   --pull-secret pull-secret.json \
-  --memory 10 \
+  --memory 10Gi \
   --cores 8 \
   --release-image quay.io/openshift-release-dev/ocp-release:4.17.0-multi \
   --etcd-storage-class=ocs-storagecluster-ceph-rbd
