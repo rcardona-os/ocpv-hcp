@@ -165,14 +165,17 @@ $ hcp create cluster kubevirt \
 $ oc get pods -n hpc-guest-cluster-0
 ```
 
-- This is the result
+- How the namespaces fit into the architecture
 
 ##### 🚀 Namespace Breakdown in OpenShift HCP (Hypershift)
 
-| Namespace                 | What It Represents |
-|---------------------------|--------------------|
-| **`hcp`**                 | **The Management Cluster's HCP Namespace** → This is where OpenShift **manages** the Hosted Control Plane (HCP) for the hosted cluster. |
-| **`hcp-guest-cluster-0`** | **The Hosted Cluster's Namespace** → This is where your worker nodes, workloads, and control plane components live **inside the hosted cluster**. |
+## 🛠️ How to Differentiate the Namespaces
+
+| Namespace                 | Location             | Purpose |
+|---------------------------|---------------------|---------|
+| **`hcp`**                 | Management Cluster  | Controls the hosted control plane |
+| **`guest-cluster-0`**     | Management Cluster  | Stores metadata and API objects for the hosted cluster |
+| **`hcp-guest-cluster-0`** | Hosted Cluster      | Runs worker nodes and workloads |
 
 ---
 
@@ -181,6 +184,7 @@ $ oc get pods -n hpc-guest-cluster-0
 | **Component**             | **Lives In Namespace**          | **Where It Runs** |
 |---------------------------|--------------------------------|-------------------|
 | **Hosted Control Plane**  | `hcp` (Management Cluster)     | **Management Cluster** |
+| **MachinePool / NodePool** | `hcp` (Management Cluster)    | **Controls Hosted Cluster Workers** |
 | **MachinePool / NodePool** | `hcp` (Management Cluster)    | **Controls Hosted Cluster Workers** |
 | **Worker Nodes**    | `hcp-guest-cluster-0`         | **Hosted Cluster** |
 | **KubeVirt VMs**          | `hcp-guest-cluster-0`         | **Hosted Cluster Worker Nodes** |
