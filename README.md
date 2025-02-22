@@ -181,8 +181,8 @@ $ oc get pods -n hpc-guest-cluster-0
 | **Component**             | **Lives In Namespace**          | **Where It Runs** |
 |---------------------------|--------------------------------|-------------------|
 | **Hosted Control Plane**  | `hcp` (Management Cluster)     | **Management Cluster** |
-| **Worker Nodes (VMs)**    | `hcp-guest-cluster-0`         | **Hosted Cluster** |
 | **MachinePool / NodePool** | `hcp` (Management Cluster)    | **Controls Hosted Cluster Workers** |
+| **Worker Nodes**    | `hcp-guest-cluster-0`         | **Hosted Cluster** |
 | **KubeVirt VMs**          | `hcp-guest-cluster-0`         | **Hosted Cluster Worker Nodes** |
 
 ---
