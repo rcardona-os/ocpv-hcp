@@ -177,7 +177,7 @@ $ oc get pods -n hpc-guest-cluster-0
 
 ---
 
-##### 🌍 Where Each Component Runs
+#### 🌍 Where Each Component Runs
 
 | **Component**             | **Lives In Namespace**          | **Where It Runs** |
 |---------------------------|--------------------------------|-------------------|
