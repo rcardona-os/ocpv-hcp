@@ -1,3 +1,31 @@
+# OCPV Hosted Control Plane Provisioning
+
+This repository contains a procedure for provisioning a hosted control plane on OpenShift Virtualization infrastructure. The following documentation details the steps, configuration options, and troubleshooting guidance while maintaining the structure you already have.
+
+---
+
+## 1. Introduction
+
+Provisioning a hosted control plane in an OpenShift Virtualization environment is designed to separate the management components from the underlying infrastructure. This guide explains how to deploy the control plane in a modular, secure, and scalable manner.
+
+---
+
+## 2. Architecture Overview
+
+The solution is split into distinct layers:
+
+- **Control Plane Components:**  
+  Includes the API server, controllers, scheduler, and other critical OpenShift services.
+  
+- **Infrastructure Layer:**  
+  Virtual machines and network resources managed via your virtualization provider.
+
+- **Integration Points:**  
+  Secure, reliable connectivity between the control plane and worker nodes with high-availability configurations.
+
+This separation allows for improved maintainability, scalability, and fault tolerance.
+
+---
 ## Prerequisites
 
 - [x] OCP v4.17
@@ -6,7 +34,7 @@
 
 - [x] OCP Virtualization installed and configured
 
-
+---
 ## Steps:
 
 ### 0 - Installing Muticluster operator
