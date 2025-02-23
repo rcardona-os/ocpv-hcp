@@ -266,7 +266,7 @@ e.i.
 DTLL8-LvWxb-IzhqP-JaiNc
 ```
 
-##### adding identity provider
+##### Adding identity provider
 ```bash
 $ oc edit hostedclusters guest-cluster-0 -n hcp
 ```
