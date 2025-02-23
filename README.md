@@ -108,7 +108,7 @@ $ oc get managedclusters local-cluster
 ###  1 - Installing hcp cli
 ##### 1.0 - Get the URL to download the hcp binary by running the following command:
 ```bash
-$ oc get ConsoleCLIDownload hcp-cli-download -o json | jq -r ".spec"
+$ oc get consoleclidownload hcp-cli-download -o json | jq -r ".spec"
 ```
 
 ##### 1.2 - Download the hcp binary by running the following command:
