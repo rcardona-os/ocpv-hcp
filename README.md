@@ -26,7 +26,7 @@ The solution is split into distinct layers:
 This separation allows for improved maintainability, scalability, and fault tolerance.
 
 ---
-## Prerequisites
+## 3. Prerequisites
 
 - [x] OCP v4.17
 
@@ -35,7 +35,7 @@ This separation allows for improved maintainability, scalability, and fault tole
 - [x] OCP Virtualization installed and configured
 
 ---
-## Steps:
+## 4. Procedure
 
 ### 0 - Installing Muticluster operator
 
