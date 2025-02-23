@@ -25,6 +25,8 @@ The solution is split into distinct layers:
 
 This separation allows for improved maintainability, scalability, and fault tolerance.
 
+![Architecture](media/hcp.png)
+
 ---
 ## 3. Prerequisites
 
