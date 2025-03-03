@@ -275,11 +275,13 @@ $ oc edit hostedclusters guest-cluster-0 -n hcp
 ## ACM, Monitoring Observability
 With RH ACM we can enhance Global Cluster Management for OCP+V. As of ACM 2.12 we can levarage the CMO (Cluster Monitoring Operator). This allows us to add several OCP Virtualization Dashboards in ACC. This finally allows us to observe our entire virtualization Stack at scale.
 
+This is the diagram representing multicluster observability configuration when it is enabled.
+<img src="https://github.com/user-attachments/assets/60a003a6-fb1e-4d45-a3b0-05e6a20f03dc" alt="Alt Text" width="300" height="300">
+
 First things first - we need to setup the Observability CR, an addtional API - in ACM. Besides ACM as of Version 2.12 we also need an S3-API comtable Object Storage. I'm using S3 Storage within my AWS Account.
 
-<img src="https://github.com/user-attachments/assets/69e880dd-92a5-4ba5-915a-9d79762a9e19" alt="Alt Text" width="300" height="300">
 
-Having this piece of Storage:
+This is the piece of Storage I craeted for my Metrics and Alerts :
 ```bash
 apiVersion: v1
 kind: Secret
@@ -297,5 +299,38 @@ stringData:
       access_key: xxxxxxxxxxxxxxxxxxxxxxx
       secret_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
+<img src="https://github.com/user-attachments/assets/69e880dd-92a5-4ba5-915a-9d79762a9e19" alt="Alt Text" width="300" height="300">
+
+After creating the Storage we are going create the new obsveravability object levaregs by the MultiClusterObservability API.
+```bash
+apiVersion: observability.open-cluster-management.io/v1beta2
+kind: MultiClusterObservability
+metadata:
+  name: observability
+spec:
+  observabilityAddonSpec: {}
+  storageConfig:
+    metricObjectStorage:
+      name: thanos-object-storage
+      key: thanos.yaml
+```
+
+🚀 And - after couple of minutes - let's check ith the pods are all up and running in our namespace "open-cluster-management-observability"
+```bash
+$oc get pods -n open-cluster-management-observability
+NAME                                                      READY   STATUS    RESTARTS        AGE
+endpoint-observability-operator-5dfff85bc9-7gqjl          1/1     Running   2               6d16h
+metrics-collector-deployment-75756c986f-srsrl             1/1     Running   0               4d20h
+observability-alertmanager-0                              4/4     Running   8               6d16h
+observability-grafana-67d7f77b9f-cwgbm                    3/3     Running   6               6d16h
+observability-observatorium-api-745b55749f-7z4zh          1/1     Running   0               4d20h
+observability-observatorium-operator-54cdbfb6b4-srhlv     1/1     Running   2               6d16h
+observability-rbac-query-proxy-c768568b6-czclq            2/2     Running   0               4d20h
+observability-rbac-query-proxy-c768568b6-fqvhk            2/2     Running   0               4d20h
+observability-thanos-compact-0                            1/1     Running   2               6d16h
+observability-thanos-query-85644f9cff-k7psb               1/1     Running   2               6d16h
+observability-thanos-store-memcached-0                    2/2     Running   4               6d16h
+```
+
 
 
