@@ -321,21 +321,21 @@ spec:
       key: thanos.yaml
 ```
 
-🚀 And - after couple of minutes - let's check ith the pods are all up and running in our namespace "open-cluster-management-observability"
+🚀 And - after couple of minutes - let's check if the pods are all up for Thanos, Grafana and Alertmanager and running in our namespace "open-cluster-management-observability"
 ```bash
 $oc get pods -n open-cluster-management-observability
-NAME                                                      READY   STATUS    RESTARTS        AGE
-endpoint-observability-operator-5dfff85bc9-7gqjl          1/1     Running   2               6d16h
-metrics-collector-deployment-75756c986f-srsrl             1/1     Running   0               4d20h
-observability-alertmanager-0                              4/4     Running   8               6d16h
-observability-grafana-67d7f77b9f-cwgbm                    3/3     Running   6               6d16h
-observability-observatorium-api-745b55749f-7z4zh          1/1     Running   0               4d20h
-observability-observatorium-operator-54cdbfb6b4-srhlv     1/1     Running   2               6d16h
-observability-rbac-query-proxy-c768568b6-czclq            2/2     Running   0               4d20h
-observability-rbac-query-proxy-c768568b6-fqvhk            2/2     Running   0               4d20h
-observability-thanos-compact-0                            1/1     Running   2               6d16h
-observability-thanos-query-85644f9cff-k7psb               1/1     Running   2               6d16h
-observability-thanos-store-memcached-0                    2/2     Running   4               6d16h
+NAME                                                      READY   STATUS      
+endpoint-observability-operator-5dfff85bc9-7gqjl          1/1     Running             
+metrics-collector-deployment-75756c986f-srsrl             1/1     Running        
+observability-alertmanager-0                              4/4     Running   
+observability-grafana-67d7f77b9f-cwgbm                    3/3     Running  
+observability-observatorium-api-745b55749f-7z4zh          1/1     Running   
+observability-observatorium-operator-54cdbfb6b4-srhlv     1/1     Running  
+observability-rbac-query-proxy-c768568b6-czclq            2/2     Running  
+observability-rbac-query-proxy-c768568b6-fqvhk            2/2     Running   
+observability-thanos-compact-0                            1/1     Running   
+observability-thanos-query-85644f9cff-k7psb               1/1     Running   
+observability-thanos-store-memcached-0                    2/2     Running              
 ```
 
 
@@ -350,8 +350,6 @@ This way we can just klick on the faulty vm and we are going to get forwareded t
 
 
 
-
-
 ----------
 > Or we can see the related objects of this Virtual machine
 <img src="https://github.com/user-attachments/assets/6b574597-7a29-40e5-b5e2-e62ac3611316" alt="Alt Text" width="300" height="400">
@@ -359,14 +357,19 @@ This way we can just klick on the faulty vm and we are going to get forwareded t
 
 #### Dashboards in ACM / Grafana
 With ACM 2.12 we getting 5 new dashboards like the General OCP+V Cluster overview or also a Single Cluster View like this:
+![image](https://github.com/user-attachments/assets/c05c10a5-bc5b-48c3-a76b-e74ebd1f2901)
+
 ![image](https://github.com/user-attachments/assets/f3c0b510-54ee-4788-a2c3-3bb4ab8c5e1d)
 
-
+Clicking an "Grafana" in the ACM Cluster Overview and we can see all the Dashboards that aggregate the metrics that come from multiple clusters. This mazing feature can us help to orchestrate and to organize all our managed clusters from a central pane.
 
 
 #### Altermanager in ACM
+Observability is a great thing and a good ally for monitoring all your clusters from a central view, but we will go even further, kinda icing on the cake. Altermanager is one thing more to help us to manage our clusters.
+AlertManager is a tool that can send alerts to a set of other systems, such as email, PagerDuty, Opsgenie, WeChat, Telegram, Slack, and also your custom webhooks.
 
-#### Telegram Alerts!
+#### Example - Telegram & Slack Alerts!
+
 
 
 
