@@ -275,6 +275,8 @@ $ oc edit hostedclusters guest-cluster-0 -n hcp
 ## ACM, Monitoring Observability
 With RH ACM we can enhance Global Cluster Management for OCP+V. As of ACM 2.12 we can levarage the CMO (Cluster Monitoring Operator). This allows us to add several OCP Virtualization Dashboards in ACC. This finally allows us to observe our entire virtualization Stack at scale.
 
+#### Observability
+
 This is the diagram representing multicluster observability configuration when it is enabled.
 <img src="https://github.com/user-attachments/assets/60a003a6-fb1e-4d45-a3b0-05e6a20f03dc" alt="Alt Text" width="600" height="400">
 
@@ -335,6 +337,22 @@ observability-thanos-compact-0                            1/1     Running   2   
 observability-thanos-query-85644f9cff-k7psb               1/1     Running   2               6d16h
 observability-thanos-store-memcached-0                    2/2     Running   4               6d16h
 ```
+
+
+#### VM's in ACM
+Some beenfits already have founbd their way in ACM as well. Two we might emphazize here:
+1.
+Virtual Machine Overview on a global Scale from all managed cluster. This way we can just klick on the faulty vm and we are going to get forwareded to the appropriate cluster to take on the next steps.
+<img src="https://github.com/user-attachments/assets/80ed437d-bef5-4e17-bd8c-016d335263ee" alt="Alt Text" width="600" height="400">
+Or we can see the related objects of this Virtual machine
+<img src="https://github.com/user-attachments/assets/6b574597-7a29-40e5-b5e2-e62ac3611316" alt="Alt Text" width="600" height="400">
+
+
+#### Dashboards in ACM / Grafana
+
+#### Altermanager in ACM
+
+#### Telegram Alerts!
 
 
 
