@@ -342,8 +342,13 @@ observability-thanos-store-memcached-0                    2/2     Running   4   
 #### VM's in ACM
 Some beenfits already have founbd their way in ACM as well. Two we might emphazize here:
 1.
-Virtual Machine Overview on a global Scale from all managed cluster. This way we can just klick on the faulty vm and we are going to get forwareded to the appropriate cluster to take on the next steps.
-<img src="https://github.com/user-attachments/assets/80ed437d-bef5-4e17-bd8c-016d335263ee" alt="Alt Text" width="600" height="700">
+Virtual Machine Overview on a global Scale from all managed cluster.
+This way we can just klick on the faulty vm and we are going to get forwareded to the appropriate cluster to take on the next steps.
+
+<img src="https://github.com/user-attachments/assets/80ed437d-bef5-4e17-bd8c-016d335263ee" alt="Alt Text" width="800" height="500">
+
+
+
 
 
 
