@@ -345,7 +345,7 @@ Some beenfits already have founbd their way in ACM as well. Two we might emphazi
 Virtual Machine Overview on a global Scale from all managed cluster.
 This way we can just klick on the faulty vm and we are going to get forwareded to the appropriate cluster to take on the next steps.
 
-<img src="https://github.com/user-attachments/assets/80ed437d-bef5-4e17-bd8c-016d335263ee" alt="Alt Text" width="1000" height="450">
+<img src="https://github.com/user-attachments/assets/80ed437d-bef5-4e17-bd8c-016d335263ee" alt="Alt Text" width="800" height="400">
 
 
 
@@ -354,7 +354,7 @@ This way we can just klick on the faulty vm and we are going to get forwareded t
 
 ----------
 > Or we can see the related objects of this Virtual machine
-<img src="https://github.com/user-attachments/assets/6b574597-7a29-40e5-b5e2-e62ac3611316" alt="Alt Text" width="400" height="500">
+<img src="https://github.com/user-attachments/assets/6b574597-7a29-40e5-b5e2-e62ac3611316" alt="Alt Text" width="300" height="400">
 
 
 #### Dashboards in ACM / Grafana
