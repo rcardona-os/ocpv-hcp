@@ -385,11 +385,15 @@ Clicking an "Grafana" in the ACM Cluster Overview and we can see all the Dashboa
 #### Altermanager in ACM
 Observability is a great thing and a good ally for monitoring all your clusters from a central view, but we will go even further, kinda icing on the cake. Altermanager is one thing more to help us to manage our clusters.
 AlertManager is a tool that can send alerts to a set of other systems, such as email, PagerDuty, Opsgenie, WeChat, Telegram, Slack, and also your custom webhooks.
-<img src="https://github.com/user-attachments/assets/b506c1e1-b2f4-4ba6-8d66-053282e6aa8e" alt="Alt Text" width="600" height="250">
 
+<img src="https://github.com/user-attachments/assets/b506c1e1-b2f4-4ba6-8d66-053282e6aa8e" alt="Alt Text" width="600" height="250">
+In this example we getting notified that our Windows 11 VM can not be evictet during a cluster update. In this case we can drain the node due to a wrongly configured storage profile (RWO). We did it on purpose:). 
 
 #### Example - Telegram & Slack Alerts!
 
+##### Slack Alert
+
+##### Telegramm Alert
 
 
 
