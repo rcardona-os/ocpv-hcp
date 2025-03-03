@@ -275,7 +275,10 @@ $ oc edit hostedclusters guest-cluster-0 -n hcp
 ## ACM, Monitoring Observability
 With RH ACM we can enhance Global Cluster Management for OCP+V. As of ACM 2.12 we can levarage the CMO (Cluster Monitoring Operator). This allows us to add several OCP Virtualization Dashboards in ACC. This finally allows us to observe our entire virtualization Stack at scale.
 
-First things first - we need to setup the Observability CR, an addtional API - in ACM- 
+First things first - we need to setup the Observability CR, an addtional API - in ACM. Besides ACM as of Version 2.12 we also need an S3-API comtable Object Storage. I'm using S3 Storage within my AWS Account.
+![image](https://github.com/user-attachments/assets/69e880dd-92a5-4ba5-915a-9d79762a9e19)
+
+
 
 
 
