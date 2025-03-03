@@ -356,7 +356,6 @@ This way we can just klick on the faulty vm and we are going to get forwareded t
 
 ----------
 We also will see informations relateted to all our VM's like:
-```bash
 - Cluster name: displays the name of the cluster being analyzed.
 * Provider: displays which provider/infrastructure the cluster is running on.
 + OpenShift Virtualization version.
@@ -370,7 +369,7 @@ We also will see informations relateted to all our VM's like:
 * Timeline of total VMs running on each node.
 * Total VMs aggregated by phase, except non running. 
 * Total VMs aggregated by Operating System.
-```
+
 
 #### Dashboards in ACM / Grafana
 With ACM 2.12 we getting 5 new dashboards like the General OCP+V Cluster overview or also a Single Cluster View like this:
