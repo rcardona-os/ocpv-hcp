@@ -352,9 +352,9 @@ This way we can just klick on the faulty vm and we are going to get forwareded t
 
 
 
-
+----------
 > Or we can see the related objects of this Virtual machine
-<img src="https://github.com/user-attachments/assets/6b574597-7a29-40e5-b5e2-e62ac3611316" alt="Alt Text" width="600" height="700">
+<img src="https://github.com/user-attachments/assets/6b574597-7a29-40e5-b5e2-e62ac3611316" alt="Alt Text" width="400" height="500">
 
 
 #### Dashboards in ACM / Grafana
