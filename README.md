@@ -278,7 +278,22 @@ With RH ACM we can enhance Global Cluster Management for OCP+V. As of ACM 2.12 w
 First things first - we need to setup the Observability CR, an addtional API - in ACM. Besides ACM as of Version 2.12 we also need an S3-API comtable Object Storage. I'm using S3 Storage within my AWS Account.
 ![image](https://github.com/user-attachments/assets/69e880dd-92a5-4ba5-915a-9d79762a9e19)
 
-
+Having this piece of Storage:
+apiVersion: v1
+kind: Secret
+metadata:
+  name: thanos-object-storage
+  namespace: open-cluster-management-observability
+type: Opaque
+stringData:
+  thanos.yaml: |
+    type: s3
+    config:
+      bucket: ocpvbucket
+      endpoint: s3.amazonaws.com
+      insecure: false
+      access_key: xxxxxxxxxxxxxxxxxxxxxxx
+      secret_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
 
