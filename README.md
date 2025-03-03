@@ -358,6 +358,11 @@ This way we can just klick on the faulty vm and we are going to get forwareded t
 
 
 #### Dashboards in ACM / Grafana
+With ACM 2.12 we getting 5 new dashboards like the General OCP+V Cluster overview or also a Single Cluster View like this:
+![image](https://github.com/user-attachments/assets/f3c0b510-54ee-4788-a2c3-3bb4ab8c5e1d)
+
+
+
 
 #### Altermanager in ACM
 
