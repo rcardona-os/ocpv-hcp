@@ -357,11 +357,11 @@ This way we can just klick on the faulty vm and we are going to get forwareded t
 ----------
 We also will see informations relateted to all our VM's like:
 ```bash
-* Cluster name: displays the name of the cluster being analyzed.
+- Cluster name: displays the name of the cluster being analyzed.
 * Provider: displays which provider/infrastructure the cluster is running on.
-* OpenShift Virtualization version.
-* OpenShift Cluster version.
-* Total nodes used to provision VMs.
++ OpenShift Virtualization version.
++ OpenShift Cluster version.
++ Total nodes used to provision VMs.
 * Total VMs created.
 * Total VMs running.
 * Total VMs not running.
