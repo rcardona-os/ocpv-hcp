@@ -279,6 +279,7 @@ First things first - we need to setup the Observability CR, an addtional API - i
 ![image](https://github.com/user-attachments/assets/69e880dd-92a5-4ba5-915a-9d79762a9e19)
 
 Having this piece of Storage:
+```bash
 apiVersion: v1
 kind: Secret
 metadata:
@@ -294,6 +295,6 @@ stringData:
       insecure: false
       access_key: xxxxxxxxxxxxxxxxxxxxxxx
       secret_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
+```
 
 
