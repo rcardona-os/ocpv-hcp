@@ -357,9 +357,9 @@ This way we can just klick on the faulty vm and we are going to get forwareded t
 
 #### Dashboards in ACM / Grafana
 With ACM 2.12 we getting 5 new dashboards like the General OCP+V Cluster overview or also a Single Cluster View like this:
-<img src="https://github.com/user-attachments/assets/c05c10a5-bc5b-48c3-a76b-e74ebd1f2901" alt="Alt Text" width="300" height="400">
+<img src="https://github.com/user-attachments/assets/c05c10a5-bc5b-48c3-a76b-e74ebd1f2901" alt="Alt Text" width="600" height="400">
 
-<img src="https://github.com/user-attachments/assets/f3c0b510-54ee-4788-a2c3-3bb4ab8c5e1d" alt="Alt Text" width="300" height="400">
+<img src="https://github.com/user-attachments/assets/f3c0b510-54ee-4788-a2c3-3bb4ab8c5e1d" alt="Alt Text" width="600" height="400">
 
 Clicking an "Grafana" in the ACM Cluster Overview and we can see all the Dashboards that aggregate the metrics that come from multiple clusters. This mazing feature can us help to orchestrate and to organize all our managed clusters from a central pane.
 
