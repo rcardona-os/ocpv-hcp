@@ -273,18 +273,19 @@ $ oc edit hostedclusters guest-cluster-0 -n hcp
 
 ---------------------------------------------------------
 ## ACM, Monitoring Observability
-With RH ACM we can enhance Global Cluster Management for OCP+V. As of ACM 2.12 we can levarage the CMO (Cluster Monitoring Operator). This allows us to add several OCP Virtualization Dashboards in ACC. This finally allows us to observe our entire virtualization Stack at scale.
+On top of that, what Rafael did over there with HCP - setting up OpenShift+V - we need a central Interface to have on tooling, or one ui for all our Operation, our Clusters. 
+With RH ACM we can enhance Global Cluster Management for OCP+V. As of ACM 2.12 we can levarage the CMO (Cluster Monitoring Operator). This allows us to add several OCP Virtualization Dashboards in ACM. This finally allows us to observe our entire virtualization Stack at scale.
 
 #### Observability
 
-This is the diagram representing multicluster observability configuration when it is enabled.
+This is the diagram is representing multicluster observability configuration when it is enabled.
 <img src="https://github.com/user-attachments/assets/60a003a6-fb1e-4d45-a3b0-05e6a20f03dc" alt="Alt Text" width="600" height="400">
 
 
 
 
 
-First things first - we need to setup the Observability CR, an addtional API - in ACM. Besides ACM as of Version 2.12 we also need an S3-API comtable Object Storage. I'm using S3 Storage within my AWS Account.
+First things first - we need to setup the Observability CR, an additional API - in ACM. Besides ACM as of Version 2.12 we also need an S3-API compatible Object Storage. I'm using S3 Storage within my AWS Account.
 
 
 This is the piece of Storage I craeted for my Metrics and Alerts :
@@ -307,7 +308,7 @@ stringData:
 ```
 <img src="https://github.com/user-attachments/assets/69e880dd-92a5-4ba5-915a-9d79762a9e19" alt="Alt Text" width="300" height="300">
 
-After creating the Storage we are going create the new obsveravability object levaregs by the MultiClusterObservability API.
+After creating the Storage we are going create the new observability object which is leveraged by the MultiClusterObservability API.
 ```bash
 apiVersion: observability.open-cluster-management.io/v1beta2
 kind: MultiClusterObservability
@@ -340,9 +341,9 @@ observability-thanos-store-memcached-0                    2/2     Running
 
 
 #### VM's in ACM
-Some beenfits already have founbd their way in ACM as well. Two we might emphazize here:
+Some beenfits already have found their way in ACM as well. Two we might emphazize here:
 1.
-Virtual Machine Overview on a global Scale from all managed cluster.
+Virtual Machine Overview on a global Scale from all managed clusters.
 This way we can just klick on the faulty vm and we are going to get forwareded to the appropriate cluster to take on the next steps.
 
 <img src="https://github.com/user-attachments/assets/80ed437d-bef5-4e17-bd8c-016d335263ee" alt="Alt Text" width="800" height="300">
@@ -382,15 +383,15 @@ With ACM 2.12 we getting 5 new dashboards like the General OCP+V Cluster overvie
 <img src="https://github.com/user-attachments/assets/f3c0b510-54ee-4788-a2c3-3bb4ab8c5e1d" alt="Alt Text" width="600" height="400">
 
 
-Clicking an "Grafana" in the ACM Cluster Overview and we can see all the Dashboards that aggregate the metrics that come from multiple clusters. This mazing feature can us help to orchestrate and to organize all our managed clusters from a central pane.
+Clicking an "Grafana" in the ACM Cluster Overview and we can see all the Dashboards that aggregates the metrics which comes from multiple clusters. This amazing feature can us help to orchestrate and to organize all our managed clusters from a central pane.
 
 
-#### Altermanager in ACM
-Observability is a great thing and a good ally for monitoring all your clusters from a central view, but we will go even further, kinda icing on the cake. Altermanager is one thing more to help us to manage our clusters.
+#### Alertmanager in ACM
+Observability is a great thing and a good ally for monitoring all your clusters from a central view, but we will go even further, kinda icing on the cake. Alertmanager is one thing more to help us to manage our clusters.
 AlertManager is a tool that can send alerts to a set of other systems, such as email, PagerDuty, Opsgenie, WeChat, Telegram, Slack, and also your custom webhooks.
 
 <img src="https://github.com/user-attachments/assets/b506c1e1-b2f4-4ba6-8d66-053282e6aa8e" alt="Alt Text" width="600" height="250">
-In this example we getting notified that our Windows 11 VM can not be evictet during a cluster update. In this case we can drain the node due to a wrongly configured storage profile (RWO). We did it on purpose:). 
+In this example we getting notified that our Windows 11 VM can not be evictet during a cluster update. In this case we cannot drain the node due to a wrongly configured storage profile (RWO). We did it on purpose:). 
 
 #### Example - Telegram & Slack Alerts!
 
