@@ -272,7 +272,7 @@ $ oc edit hostedclusters guest-cluster-0 -n hcp
 ```
 
 ---------------------------------------------------------
-## ACM, Monitoring Observability
+## 5. ACM, Monitoring Observability
 On top of that, what Rafael did over there with HCP - setting up OpenShift+V - we need a central Interface to have on tooling, or one ui for all our Operation, our Clusters. 
 With RH ACM we can enhance Global Cluster Management for OCP+V. As of ACM 2.12 we can levarage the CMO (Cluster Monitoring Operator). This allows us to add several OCP Virtualization Dashboards in ACM. This finally allows us to observe our entire virtualization Stack at scale.
 
