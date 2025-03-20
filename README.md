@@ -192,7 +192,7 @@ $ hcp create cluster kubevirt \
 
 🚀 Verify that the hosted control plane pods are running in the HOSTED_CLUSTER_NAMESPACE, these are the pods that run the control plane of the managed cluster.
 ```bash
-$ oc get pods -n hpc-guest-cluster-0
+$ oc get pods -n hcp-guest-cluster-0
 ```
 
 - How the namespaces fit into the architecture
