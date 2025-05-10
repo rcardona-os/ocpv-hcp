@@ -270,3 +270,134 @@ DTLL8-LvWxb-IzhqP-JaiNc
 ```bash
 $ oc edit hostedclusters guest-cluster-0 -n hcp
 ```
+
+---------------------------------------------------------
+## 5. ACM, Monitoring Observability
+On top of that, what Rafael did over there with HCP - setting up OpenShift+V - we need a central Interface to have on tooling, or one ui for all our Operation, our Clusters. 
+With RH ACM we can enhance Global Cluster Management for OCP+V. As of ACM 2.12 we can levarage the CMO (Cluster Monitoring Operator). This allows us to add several OCP Virtualization Dashboards in ACM. This finally allows us to observe our entire virtualization Stack at scale.
+
+#### Observability
+
+This is the diagram is representing multicluster observability configuration when it is enabled.
+<img src="https://github.com/user-attachments/assets/60a003a6-fb1e-4d45-a3b0-05e6a20f03dc" alt="Alt Text" width="600" height="400">
+
+
+
+
+
+First things first - we need to setup the Observability CR, an additional API - in ACM. Besides ACM as of Version 2.12 we also need an S3-API compatible Object Storage. I'm using S3 Storage within my AWS Account.
+
+
+This is the piece of Storage I craeted for my Metrics and Alerts :
+```bash
+apiVersion: v1
+kind: Secret
+metadata:
+  name: thanos-object-storage
+  namespace: open-cluster-management-observability
+type: Opaque
+stringData:
+  thanos.yaml: |
+    type: s3
+    config:
+      bucket: ocpvbucket
+      endpoint: s3.amazonaws.com
+      insecure: false
+      access_key: xxxxxxxxxxxxxxxxxxxxxxx
+      secret_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+<img src="https://github.com/user-attachments/assets/69e880dd-92a5-4ba5-915a-9d79762a9e19" alt="Alt Text" width="300" height="300">
+
+After creating the Storage we are going create the new observability object which is leveraged by the MultiClusterObservability API.
+```bash
+apiVersion: observability.open-cluster-management.io/v1beta2
+kind: MultiClusterObservability
+metadata:
+  name: observability
+spec:
+  observabilityAddonSpec: {}
+  storageConfig:
+    metricObjectStorage:
+      name: thanos-object-storage
+      key: thanos.yaml
+```
+
+🚀 And - after couple of minutes - let's check if the pods are all up for Thanos, Grafana and Alertmanager and running in our namespace "open-cluster-management-observability"
+```bash
+$oc get pods -n open-cluster-management-observability
+NAME                                                      READY   STATUS      
+endpoint-observability-operator-5dfff85bc9-7gqjl          1/1     Running             
+metrics-collector-deployment-75756c986f-srsrl             1/1     Running        
+observability-alertmanager-0                              4/4     Running   
+observability-grafana-67d7f77b9f-cwgbm                    3/3     Running  
+observability-observatorium-api-745b55749f-7z4zh          1/1     Running   
+observability-observatorium-operator-54cdbfb6b4-srhlv     1/1     Running  
+observability-rbac-query-proxy-c768568b6-czclq            2/2     Running  
+observability-rbac-query-proxy-c768568b6-fqvhk            2/2     Running   
+observability-thanos-compact-0                            1/1     Running   
+observability-thanos-query-85644f9cff-k7psb               1/1     Running   
+observability-thanos-store-memcached-0                    2/2     Running              
+```
+
+
+#### VM's in ACM
+Some beenfits already have found their way in ACM as well. Two we might emphazize here:
+1.
+Virtual Machine Overview on a global Scale from all managed clusters.
+This way we can just klick on the faulty vm and we are going to get forwareded to the appropriate cluster to take on the next steps.
+
+<img src="https://github.com/user-attachments/assets/80ed437d-bef5-4e17-bd8c-016d335263ee" alt="Alt Text" width="800" height="300">
+
+
+
+
+----------
+> Or we can see the related objects of this Virtual machine
+<img src="https://github.com/user-attachments/assets/6b574597-7a29-40e5-b5e2-e62ac3611316" alt="Alt Text" width="300" height="400">
+
+----------
+We also will see informations relateted to all our VM's like:
+****
+* Cluster name: displays the name of the cluster being analyzed.
+* Provider: displays which provider/infrastructure the cluster is running on.
+* OpenShift Virtualization version.
+* OpenShift Cluster version.
+* Total nodes used to provision VMs.
+* Total VMs created.
+* Total VMs running.
+* Total VMs not running.
+* List of the names of the last VMs created.
+* Timeline of total VMs running.
+* Timeline of total VMs running on each node.
+* Total VMs aggregated by phase, except non running. 
+* Total VMs aggregated by Operating System.
+****
+
+
+#### Dashboards in ACM / Grafana
+With ACM 2.12 we getting 5 new dashboards like the General OCP+V Cluster overview or also a Single Cluster View like this:
+
+<img src="https://github.com/user-attachments/assets/c05c10a5-bc5b-48c3-a76b-e74ebd1f2901" alt="Alt Text" width="600" height="250">
+
+
+<img src="https://github.com/user-attachments/assets/f3c0b510-54ee-4788-a2c3-3bb4ab8c5e1d" alt="Alt Text" width="600" height="400">
+
+
+Clicking an "Grafana" in the ACM Cluster Overview and we can see all the Dashboards that aggregates the metrics which comes from multiple clusters. This amazing feature can us help to orchestrate and to organize all our managed clusters from a central pane.
+
+
+#### Alertmanager in ACM
+Observability is a great thing and a good ally for monitoring all your clusters from a central view, but we will go even further, kinda icing on the cake. Alertmanager is one thing more to help us to manage our clusters.
+AlertManager is a tool that can send alerts to a set of other systems, such as email, PagerDuty, Opsgenie, WeChat, Telegram, Slack, and also your custom webhooks.
+
+<img src="https://github.com/user-attachments/assets/b506c1e1-b2f4-4ba6-8d66-053282e6aa8e" alt="Alt Text" width="600" height="250">
+In this example we getting notified that our Windows 11 VM can not be evictet during a cluster update. In this case we cannot drain the node due to a wrongly configured storage profile (RWO). We did it on purpose:). 
+
+#### Example - Telegram & Slack Alerts!
+
+##### Slack Alert
+
+##### Telegramm Alert
+
+
+
