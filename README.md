@@ -278,7 +278,8 @@ $ oc edit hostedclusters guest-cluster-0 -n hcp
 
 - with curl
 ```bash
-$ curl -s "https://quay.io/api/v1/repository/openshift-release-dev/ocp-release/tag/" | jq '.tags[].name'
+$ curl -s "https://quay.io/api/v1/repository/openshift-release-dev/ocp-release/tag/" \
+  | jq '.tags[].name'
 ```
 
 - with skopeo
