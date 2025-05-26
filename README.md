@@ -276,16 +276,16 @@ $ oc edit hostedclusters guest-cluster-0 -n hcp
 
 - check [HERE](https://multi.ocp.releases.ci.openshift.org/)
 
-- with curl
-```bash
-$ curl -s "https://quay.io/api/v1/repository/openshift-release-dev/ocp-release/tag/" \
-  | jq -r '.Tags[] | select(test("\\.sig$") | not)'
-```
-
 - with skopeo
 ```bash
 $ skopeo login -u USER quay.io
 
 $ skopeo list-tags docker://quay.io/openshift-release-dev/ocp-release \
   | jq -r '.Tags[] | select(test("\\.sig$") | not)'
+```
+
+- with curl (limited listing)
+```bash
+$ curl -s "https://quay.io/api/v1/repository/openshift-release-dev/ocp-release/tag/?limit=1000" \
+  | jq '.tags[].name | select(test("\\.sig$") | not)'
 ```
