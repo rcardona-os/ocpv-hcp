@@ -165,7 +165,7 @@ $ chmod +x hcp
 
 ##### 1.5 - Move the hcp binary file to a directory in your path by running the following command:
 ```bash
-$ sudo mv hcp /usr/local/bin/.
+$ sudo mv hcp /usr/local/bin/
 ```
 
 💡 If you download the CLI on a Mac computer, you might see a warning about the hcp binary file. You need to adjust your security settings to allow the binary file to be run.
