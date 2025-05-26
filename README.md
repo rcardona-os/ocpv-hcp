@@ -279,12 +279,13 @@ $ oc edit hostedclusters guest-cluster-0 -n hcp
 - with curl
 ```bash
 $ curl -s "https://quay.io/api/v1/repository/openshift-release-dev/ocp-release/tag/" \
-  | jq '.tags[].name'
+  | jq -r '.Tags[] | select(test("\\.sig$") | not)'
 ```
 
 - with skopeo
 ```bash
 $ skopeo login -u USER quay.io
 
-$ skope list-tags docker://quay.io/openshift-release-dev/ocp-release
+$ skopeo list-tags docker://quay.io/openshift-release-dev/ocp-release \
+  | jq -r '.Tags[] | select(test("\\.sig$") | not)'
 ```
